@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Profile</title>
+    <style>
+        /* Basic styles */
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Merienda", cursive;
+    text-transform: capitalize;
+}
+body {
+    background-image: url("https://t3.ftcdn.net/jpg/06/24/52/34/360_F_624523450_NbFfAibNsbxFDjGKueOukV4ijNGFIuQ1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: transparent;
+}
+
+.logo {
+  flex-grow: 1;
+  color: white;
+}
+
+h1 {
+  margin: 0;
+  color: white;
+
+}
+
+.links a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  margin-right: 1rem;
+}
+
+section {
+  padding: 2rem;
+}
+
+.content {
+  text-align: center;
+  color: white;
+
+}
+
+section .content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>TICKETYGO</h1>
+        </div>
+        <div class="links">
+            <a href="/">Home</a>
+            <a href="/logout/">Log Out</a>
+        </div>
+    </nav>
+    <section>
+        <div class="content">
+            <h1>Welcome, {{ session['username'] }}</h1>
+        </div>
+    </section>
+</body>
+</html>

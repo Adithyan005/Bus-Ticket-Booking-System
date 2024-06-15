@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus List</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Merienda", cursive;
+    text-transform: capitalize;
+}
+
+body {
+    background-image: url("https://t3.ftcdn.net/jpg/06/24/52/34/360_F_624523450_NbFfAibNsbxFDjGKueOukV4ijNGFIuQ1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: rgb(255, 255, 255);
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    color: white;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    background-color: #31ea0c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #29c30a;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Available Buses</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus ID</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Date of Travel</th>
+                    <th>Departure Time</th>
+                    <th>no_of_tickets</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bus in data %}
+                <tr>
+                    <td>{{ bus[0] }}</td>
+                    <td>{{ bus[1] }}</td>
+                    <td>{{ bus[2] }}</td>
+                    <td>{{ bus[3] }}</td>
+                    <td>{{ bus[4] }}</td>
+                    <td>
+                        <form action="/book/{{bus[0]}}" method="post">
+                            <input type="number" name="nop">
+                            <button type="submit">book</button>
+                            </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

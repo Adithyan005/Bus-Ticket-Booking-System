@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>TicketyGo - Bus Ticket Booking</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Merienda", cursive;
+      text-transform: capitalize;
+    }
+
+    body {
+      background-image: url("https://t3.ftcdn.net/jpg/06/24/52/34/360_F_624523450_NbFfAibNsbxFDjGKueOukV4ijNGFIuQ1.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+
+    header {
+      background-color: transparent;
+      color: white;
+      padding: 5px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    .wrapper {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, .2);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+      color: rgb(255, 255, 255);
+      width: 420px;
+      padding: 30px 40px;
+      border-radius: 10px;
+      margin-left: 26rem;
+      width: 40rem;
+    }
+
+    .wrapper h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .wrapper .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .wrapper .input-box input {
+      width: 100%;
+      height: 100%;
+      color: white;
+      background: transparent;
+      border: none;
+      outline: none;
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 25px;
+      font-size: 1rem;
+      padding: 20px 45px 20px 20px;
+    }
+
+    .wrapper .input-box input::placeholder {
+      color: white;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select, input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #31ea0c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #29c30a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+    }
+
+    .wrapper .button1 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TicketyGo</h1>
+    <p>Book your bus tickets online!</p>
+  </header>
+  <div class="wrapper" data-aos="fade-in" data-aos-duration="2000" data-aos-delay="700">
+    <main>
+      <form action="/booking" method="post">
+        <h2>Book Your Ticket</h2>
+
+        <label for="from">From:</label>
+        <div class="input-box">
+          <input type="text" name="orgin" placeholder="orgin" required>
+        </div>
+
+        <label for="from">to:</label>
+        <div class="input-box">
+          <input type="text" name="destination" placeholder="destination" required>
+        </div>
+
+        <label for="from">date:</label>
+        <div class="input-box">
+          <input type="date" name="date" placeholder="date" required>
+        </div>
+        
+        <div class="button1">
+          <center><button type="submit">Book Tickets</button></center>
+        </div>
+      </form>
+      
+      <form action="/show" method="get">
+        <div class="button1">
+          <center><button type="submit">Status</button></center>
+        </div>
+      </form>
+    </main>
+
+    <footer style="color: rgb(255, 255, 255); background-color: rgb(41, 195, 10);">
+      <p>&copy; TicketyGo 2024</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+</html>
