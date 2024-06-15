@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Merienda", cursive;
+            text-transform: capitalize;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("https://t3.ftcdn.net/jpg/06/24/52/34/360_F_624523450_NbFfAibNsbxFDjGKueOukV4ijNGFIuQ1.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .table {
+            color: white;
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        .table thead th {
+            border-bottom: 2px solid rgba(255, 255, 255, .2);
+        }
+
+        .btn-primary {
+            width: 100%;
+            height: 45px;
+            border: none;
+            outline: none;
+            background: #29c30a;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(41, 195, 10, 0.651);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Booking Confirmation</h1>
+        <p>Your booking has been successfully recorded. Here are the details:</p>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Origin</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Date of Booking</th>
+                    <th scope="col">Number of Persons</th>
+                    <th scope="col">Cancel</th>
+            
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in data %}
+                <tr>
+                    <th scope="row">{{ booking[0] }}</th>
+                    <td>{{ booking[1] }}</td>
+                    <td>{{ booking[2] }}</td>
+                    <td>{{ booking[3] }}</td>
+                    <td>{{ booking[4] }}</td>
+                    <td><a href="delete/{{ booking[0] }}" style="text-decoration: none; color: red;">cancel ticket</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('main') }}" class="btn btn-primary mt-3">Go to Home</a>
+    </div>
+</body>
+</html>
